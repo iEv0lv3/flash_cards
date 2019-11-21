@@ -61,6 +61,7 @@ class Round
     end
 
     puts "****** Game over! ******"
-
+    puts "You had #{self.number_correct} out of #{self.turns.count} for a total score of #{self.percent_correct}."
+    puts ""
   end
 end
