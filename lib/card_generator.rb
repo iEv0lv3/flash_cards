@@ -13,7 +13,6 @@ class CardGenerator
       line = data.strip.split(",")
       card = Card.new(line[0], line[1], line[2])
       self.cards << card
-      require 'pry'; binding.pry
     end
   end
 end
