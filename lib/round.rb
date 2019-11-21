@@ -62,6 +62,16 @@ class Round
 
     puts "****** Game over! ******"
     puts "You had #{self.number_correct} out of #{self.turns.count} for a total score of #{self.percent_correct}."
-    puts ""
+
+    categories = []
+    self.deck.cards.each do |card|
+      if categories.include?(card.category) == false
+        categories << card.category
+      end
+    end
+
+    categories.each do |category|
+      puts "#{category} - #{self.percent_correct_by_category(category)}%"
+    end
   end
 end
