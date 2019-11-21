@@ -4,7 +4,6 @@ require './lib/deck'
 require './lib/card'
 require './lib/turn'
 require './lib/round'
-require 'pry'
 
 class RoundTest < Minitest::Test
 
