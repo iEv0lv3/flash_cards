@@ -23,7 +23,7 @@ class CardGeneratorTest < Minitest::Test
 
   def test_add_cards_opens_file_and_adds_cards
     new_deck = CardGenerator.new("cards.txt")
-    binding.pry
+    
     assert new_deck.add_cards
   end
 end
