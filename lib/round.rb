@@ -18,6 +18,7 @@ class Round
     if new_turn.correct?
       self.number_correct += 1
     end
+    puts new_turn.feedback
     new_turn
   end
 
@@ -46,5 +47,31 @@ class Round
       end
     end
     (correct.to_f / total.to_f) * 100
+  end
+
+  def start
+    puts "Welcome! You're playing with #{self.deck.count} cards."
+    puts "--------------------------------------------------------------"
+    self.deck.cards.each do |card|
+      puts "This is card number #{self.turns.count + 1} out of #{self.deck.count}"
+      puts "Question: #{card.question}?"
+
+      guess = gets.chomp
+      take_turn(guess)
+    end
+
+    puts "****** Game over! ******"
+    puts "You had #{self.number_correct} out of #{self.turns.count} for a total score of #{self.percent_correct}."
+
+    categories = []
+    self.deck.cards.each do |card|
+      if categories.include?(card.category) == false
+        categories << card.category
+      end
+    end
+
+    categories.each do |category|
+      puts "#{category} - #{self.percent_correct_by_category(category)}%"
+    end
   end
 end
