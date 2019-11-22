@@ -33,6 +33,13 @@ class Round
     category_correct
   end
 
+  # def number_correct_by_category(category)
+  #
+  #   self.turns.select do |turn|
+  #     turn.card.category == category && turn.correct?
+  #   end.count
+  # end
+
   def percent_correct
     (self.number_correct.to_f / self.turns.count.to_f) * 100
   end

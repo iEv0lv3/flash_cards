@@ -4,7 +4,6 @@ require './lib/deck'
 require './lib/card'
 require './lib/turn'
 require './lib/round'
-require 'pry'
 
 class RoundTest < Minitest::Test
 
@@ -97,7 +96,9 @@ class RoundTest < Minitest::Test
 
     new_turn = round.take_turn("Juneau")
 
+    assert_instance_of Turn, new_turn
     assert_equal true, new_turn.correct?
+    assert_equal "Juneau", new_turn.guess
   end
 
   def test_turns_has_new_turn_included
