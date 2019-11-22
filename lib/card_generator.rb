@@ -1,18 +1,19 @@
-# require './lib/card'
+require './lib/card'
 
 class CardGenerator
-  attr_accessor :filename, :cards
+  attr_reader :filename, :cards, :cards_array
 
   def initialize(filename)
     @filename = filename
-    @cards = []
   end
 
-  def add_cards
+  def cards
+    cards_array = []
     File.open(self.filename).each do |data|
       line = data.strip.split(",")
       card = Card.new(line[0], line[1], line[2])
-      self.cards << card
+      cards_array << card
     end
+    cards_array
   end
 end

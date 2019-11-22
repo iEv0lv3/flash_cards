@@ -5,7 +5,6 @@ require './lib/card'
 require './lib/turn'
 require './lib/round'
 require './lib/card_generator'
-require 'pry'
 
 class CardGeneratorTest < Minitest::Test
 
@@ -19,11 +18,5 @@ class CardGeneratorTest < Minitest::Test
     new_deck = CardGenerator.new("cards.txt")
 
     assert_equal "cards.txt", new_deck.filename
-  end
-
-  def test_add_cards_opens_file_and_adds_cards
-    new_deck = CardGenerator.new("cards.txt")
-    
-    assert new_deck.add_cards
   end
 end
