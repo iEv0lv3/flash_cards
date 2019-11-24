@@ -1,16 +1,16 @@
 class Deck
-  attr_accessor :cards
+  attr_reader :cards
 
   def initialize(cards)
     @cards = cards
   end
 
   def count
-    self.cards.count
+    cards.count
   end
 
   def cards_in_category(category)
-    self.cards.select do |card|
+    cards.select do |card|
       if card.category == category
         card
       end
