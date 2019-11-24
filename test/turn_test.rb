@@ -12,25 +12,19 @@ class TurnTest < Minitest::Test
     assert_instance_of Turn, turn
   end
 
-  def test_card_is_linked_to_turn
+  def test_card_and_guess_are_linked_with_turn
     card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
     turn = Turn.new('Juneau', card)
 
     assert_equal card, turn.card
-  end
-
-  def test_turn_has_guess
-    card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
-    turn = Turn.new('Juneau', card)
-
-    refute_empty turn.guess
+    assert_equal 'Juneau', turn.guess
   end
 
   def test_guess_is_correct
     card = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
     turn = Turn.new('Juneau', card)
 
-    assert_equal true, turn.guess == card.answer
+    assert_equal true, turn.correct?
   end
 
   def test_feedback_for_correct_answer
