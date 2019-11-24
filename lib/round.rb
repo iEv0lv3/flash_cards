@@ -8,7 +8,7 @@ class Round
   end
 
   def current_card
-    self.deck.cards[self.turns.count]
+    deck.cards[turns.count]
   end
 
   def take_turn(guess)
